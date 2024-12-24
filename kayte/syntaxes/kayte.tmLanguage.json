@@ -1,0 +1,47 @@
+{
+    "scopeName": "source.kayte",
+    "patterns": [
+      { "include": "#keywords" },
+      { "include": "#comments" },
+      { "include": "#strings" }
+    ],
+    "repository": {
+      "keywords": {
+        "patterns": [
+          {
+            "match": "\\b(if|else|for|while|function|return|class|import|export)\\b",
+            "name": "keyword.control.kayte"
+          }
+        ]
+      },
+      "comments": {
+        "patterns": [
+          {
+            "begin": "//",
+            "end": "$",
+            "name": "comment.line.double-slash.kayte"
+          },
+          {
+            "begin": "/\\*",
+            "end": "\\*/",
+            "name": "comment.block.kayte"
+          }
+        ]
+      },
+      "strings": {
+        "patterns": [
+          {
+            "begin": "\"",
+            "end": "\"",
+            "name": "string.quoted.double.kayte"
+          },
+          {
+            "begin": "'",
+            "end": "'",
+            "name": "string.quoted.single.kayte"
+          }
+        ]
+      }
+    }
+  }
+  

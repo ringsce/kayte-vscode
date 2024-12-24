@@ -1,0 +1,53 @@
+{
+  "name": "kayte",
+  "displayName": "Kayte Lang",
+  "description": "Syntax highlighting and support for the Kayte programming language",
+  "version": "0.0.1",
+  "publisher": "ringsce Community Edition", // Replace with your publisher name
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:kayte"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "kayte.helloWorld",
+        "title": "Hello World"
+      }
+    ],
+    "languages": [
+      {
+        "id": "kayte",
+        "aliases": ["Kayte Lang", "kayte"],
+        "extensions": [".kayte"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "kayte",
+        "scopeName": "source.kayte",
+        "path": "./syntaxes/kayte.tmLanguage.json"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.96.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "eslint": "^9.16.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
