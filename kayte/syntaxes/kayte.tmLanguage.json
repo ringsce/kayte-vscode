@@ -1,47 +1,82 @@
 {
-    "scopeName": "source.kayte",
-    "patterns": [
-      { "include": "#keywords" },
-      { "include": "#comments" },
-      { "include": "#strings" }
-    ],
-    "repository": {
-      "keywords": {
-        "patterns": [
-          {
-            "match": "\\b(if|else|for|while|function|return|class|import|export)\\b",
-            "name": "keyword.control.kayte"
-          }
-        ]
-      },
-      "comments": {
-        "patterns": [
-          {
-            "begin": "//",
-            "end": "$",
-            "name": "comment.line.double-slash.kayte"
-          },
-          {
-            "begin": "/\\*",
-            "end": "\\*/",
-            "name": "comment.block.kayte"
-          }
-        ]
-      },
-      "strings": {
-        "patterns": [
-          {
-            "begin": "\"",
-            "end": "\"",
-            "name": "string.quoted.double.kayte"
-          },
-          {
-            "begin": "'",
-            "end": "'",
-            "name": "string.quoted.single.kayte"
-          }
-        ]
-      }
+  "scopeName": "source.kayte",
+  "patterns": [
+    { "include": "#keywords" },
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#booleans" }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "match": "\\b(if|else|for|while|begin|end|var|const|type|procedure|function|return|class|import|export|uses|interface|implementation)\\b",
+          "name": "keyword.control.kayte"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "begin": "//",
+          "end": "$",
+          "name": "comment.line.double-slash.kayte"
+        },
+        {
+          "begin": "/\\*",
+          "end": "\\*/",
+          "name": "comment.block.kayte"
+        },
+        {
+          "begin": "\\{",
+          "end": "\\}",
+          "name": "comment.block.brace.kayte"
+        },
+        {
+          "begin": "\\(\\*",
+          "end": "\\*\\)",
+          "name": "comment.block.paren-star.kayte"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "begin": "\"",
+          "end": "\"",
+          "name": "string.quoted.double.kayte"
+        },
+        {
+          "begin": "'",
+          "end": "'",
+          "name": "string.quoted.single.kayte"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "match": "\\b[0-9]+\\b",
+          "name": "constant.numeric.integer.kayte"
+        },
+        {
+          "match": "\\b[0-9]+\\.[0-9]+\\b",
+          "name": "constant.numeric.float.kayte"
+        },
+        {
+          "match": "\\b\\$[0-9A-Fa-f]+\\b",
+          "name": "constant.numeric.hex.kayte"
+        }
+      ]
+    },
+    "booleans": {
+      "patterns": [
+        {
+          "match": "\\b(true|false)\\b",
+          "name": "constant.language.boolean.kayte"
+        }
+      ]
     }
   }
-  
+}

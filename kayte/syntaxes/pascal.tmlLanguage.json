@@ -3,13 +3,15 @@
     "patterns": [
       { "include": "#keywords" },
       { "include": "#comments" },
-      { "include": "#strings" }
+      { "include": "#strings" },
+      { "include": "#numbers" },
+      { "include": "#booleans" }
     ],
     "repository": {
       "keywords": {
         "patterns": [
           {
-            "match": "\\b(if|else|for|while|function|return|class|import|export)\\b",
+            "match": "\\b(if|else|for|while|begin|end|var|const|type|procedure|function|return|class|import|export|uses|interface|implementation)\\b",
             "name": "keyword.control.kayte"
           }
         ]
@@ -25,6 +27,16 @@
             "begin": "/\\*",
             "end": "\\*/",
             "name": "comment.block.kayte"
+          },
+          {
+            "begin": "\\{",
+            "end": "\\}",
+            "name": "comment.block.brace.kayte"
+          },
+          {
+            "begin": "\\(\\*",
+            "end": "\\*\\)",
+            "name": "comment.block.paren-star.kayte"
           }
         ]
       },
@@ -39,6 +51,30 @@
             "begin": "'",
             "end": "'",
             "name": "string.quoted.single.kayte"
+          }
+        ]
+      },
+      "numbers": {
+        "patterns": [
+          {
+            "match": "\\b[0-9]+\\b",
+            "name": "constant.numeric.integer.kayte"
+          },
+          {
+            "match": "\\b[0-9]+\\.[0-9]+\\b",
+            "name": "constant.numeric.float.kayte"
+          },
+          {
+            "match": "\\b\\$[0-9A-Fa-f]+\\b",
+            "name": "constant.numeric.hex.kayte"
+          }
+        ]
+      },
+      "booleans": {
+        "patterns": [
+          {
+            "match": "\\b(true|false)\\b",
+            "name": "constant.language.boolean.kayte"
           }
         ]
       }
